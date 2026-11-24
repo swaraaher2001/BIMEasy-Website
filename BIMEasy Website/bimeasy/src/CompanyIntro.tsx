@@ -30,9 +30,9 @@ export default function CompanyIntro() {
         </div>
 
         <div className="company-intro__visual" aria-label="BIMEasy Revit workflow illustration">
-          <div className="company-intro__image company-intro__image--one"><img src="/about1.jpg" alt="BIMEasy team working on a BIM project" /></div>
-          <div className="company-intro__image company-intro__image--two"><img src="/about2.jpg" alt="BIM project collaboration" /></div>
-          <div className="company-intro__image company-intro__image--three"><img src="/about3.jpg" alt="Revit workflow in practice" /></div>
+          <div className="company-intro__image company-intro__image--one"><img src={`${import.meta.env.BASE_URL}about1.jpg`} alt="BIMEasy team working on a BIM project" /></div>
+          <div className="company-intro__image company-intro__image--two"><img src={`${import.meta.env.BASE_URL}about2.jpg`} alt="BIM project collaboration" /></div>
+          <div className="company-intro__image company-intro__image--three"><img src={`${import.meta.env.BASE_URL}about3.jpg`} alt="Revit workflow in practice" /></div>
           <div className="company-intro__project-card"><strong>11 Tools</strong><span>Built for Revit teams</span></div>
           <div className="company-intro__award-card"><div className="company-intro__stars">BIM · REVIT · QA/QC</div><strong>40+ hrs</strong><span>Potential time saved<br />per month</span></div>
         </div>

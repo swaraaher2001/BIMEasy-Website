@@ -159,7 +159,7 @@ export default function ToolsBubbleSection() {
               <p className="tbm__audience"><b>Ideal users:</b> {activeTool.idealUsers}</p>
               <div className="tbm__meta"><span className="tbm__chip">{activeTool.category}</span><Link className="tbm__link" to="/pricing">Explore plans <span aria-hidden="true">↗</span></Link></div>
             </div>
-            <div className="tbm__card"><img src="/bim2.png" alt={`${activeTool.name} Revit workflow preview`} /></div>
+            <div className="tbm__card"><img src={`${import.meta.env.BASE_URL}bim2.png`} alt={`${activeTool.name} Revit workflow preview`} /></div>
           </>}
           <div className="tbm__dock">
             {tools.map(({ name, Icon, colors }, index) => {

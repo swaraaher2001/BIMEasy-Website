@@ -58,7 +58,7 @@ export default function TutorialShowcase() {
         </div>
 
         <div className="tutorial-showcase__visual">
-          <img src="/learn1.jpg" alt="BIMEasy learning and Revit tutorials" />
+          <img src={`${import.meta.env.BASE_URL}learn1.jpg`} alt="BIMEasy learning and Revit tutorials" />
           <div className="tutorial-showcase__info-card" aria-live="polite">
             <span className="tutorial-showcase__book-icon"><BookOpen size={19} /></span>
             <small>{activeLesson.category}</small>
