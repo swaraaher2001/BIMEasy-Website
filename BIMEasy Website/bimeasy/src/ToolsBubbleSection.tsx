@@ -8,6 +8,7 @@ import {
   CopyPlus,
   Download,
   FileCheck,
+  FileText,
   Hash,
   Layers,
   Search,

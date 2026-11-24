@@ -78,7 +78,7 @@ export default function AdminLogin() {
       >
         {/* Logo */}
         <div className="w-14 h-14 bg-primary rounded-2xl flex items-center justify-center mb-6 shadow-lg shadow-primary/20">
-          <img src="/logo.png" alt="BIMEasy" className="w-8 h-8 object-contain brightness-0 invert" />
+          <img src={`${import.meta.env.BASE_URL}logo.png`} alt="BIMEasy" className="w-8 h-8 object-contain brightness-0 invert" />
         </div>
 
         <h1 className="text-3xl font-headline font-black text-on-surface tracking-tight mb-1">Control Panel</h1>

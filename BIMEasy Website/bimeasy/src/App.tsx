@@ -44,7 +44,7 @@ export const Navbar = () => (
   <nav className="site-nav absolute top-0 z-50 w-full px-6 pt-6 sm:px-10 lg:px-[4%]">
     <div className="site-nav__inner mx-auto flex max-w-[1760px] items-center justify-between gap-5 px-1 py-2">
       <a href="https://bimeasy.in" className="flex shrink-0 items-center gap-2.5" aria-label="BIMEasy home">
-        <img src="/logo.png" alt="BIMEasy Logo" className="site-nav__brandmark h-12 w-12 object-contain" />
+          <img src={`${import.meta.env.BASE_URL}logo.png`} alt="BIMEasy Logo" className="site-nav__brandmark h-12 w-12 object-contain" />
         <span className="text-[25px] font-bold tracking-tight text-[#1c4268] font-headline">BIMEasy</span>
       </a>
       <div className="hidden flex-1 items-center gap-10 pl-12 md:flex">
@@ -106,7 +106,7 @@ const Hero = () => {
         <div className="hero-visual__frame relative w-full overflow-hidden">
           <img 
             className="hero-building relative z-[1] block w-full object-contain" 
-            src="/bim2.png" 
+            src={`${import.meta.env.BASE_URL}bim2.png`}
             alt="Glass office building representing a BIM model"
             referrerPolicy="no-referrer"
           />
@@ -296,7 +296,7 @@ export const Footer = () => (
     <div className="mx-auto grid max-w-7xl gap-12 md:grid-cols-2 xl:grid-cols-[1.5fr_1fr_1fr_1fr]">
       <div className="space-y-5">
         <div className="flex items-center gap-2.5">
-          <img src="/logo.png" alt="BIMEasy Logo" className="h-10 w-10 object-contain" />
+          <img src={`${import.meta.env.BASE_URL}logo.png`} alt="BIMEasy Logo" className="h-10 w-10 object-contain" />
           <span className="font-headline text-xl font-black tracking-tight text-primary">BIMEasy</span>
         </div>
         <p className="max-w-sm text-sm leading-relaxed text-on-surface-variant">
@@ -391,7 +391,7 @@ function HomePage() {
 
 export default function App() {
   return (
-    <Router>
+    <Router basename={import.meta.env.BASE_URL}>
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/get-started" element={<GetStarted />} />
