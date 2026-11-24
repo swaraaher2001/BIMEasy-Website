@@ -214,8 +214,9 @@
 /* ---------- responsive ---------- */
 @media (max-width:700px){
   .tb{padding:72px 16px 56px}
-  .tb__cloud{height:560px}
-  .tb-name{top:calc(100% + 7px);font-size:11px;padding:3px 8px}
+  .tb__cloud{height:940px}
+  .tb__orb-wrap{display:none}
+  .tb-name{top:calc(100% + 10px);max-width:min(132px,calc(100vw - 32px));white-space:normal;text-align:center;font-size:11px;line-height:1.25;padding:4px 9px}
   .tb-halo{filter:blur(16px)}
   .tbm__orb{left:18px;top:16px;width:50px;height:50px}
   .tbm__close{right:16px;top:16px;width:44px;height:44px}

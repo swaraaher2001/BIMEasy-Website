@@ -67,8 +67,21 @@ export default function ToolsBubbleSection() {
       const height = cloud.clientHeight;
       const scale = Math.max(.5, Math.min(1, width / 1100));
       const maxBubble = Math.max(...bubbleSizes) * scale;
+      if (width < 700) {
+        const scatteredPoints: [number, number][] = [
+          [21, 11], [76, 8], [46, 26], [87, 36], [14, 44],
+          [65, 48], [31, 59], [83, 67], [15, 79], [58, 84], [39, 89],
+        ];
+        cloud.querySelectorAll<HTMLElement>('.tb-item').forEach((button, index) => {
+          const [x, y] = scatteredPoints[index];
+          button.style.left = `${width * x / 100}px`;
+          button.style.top = `${height * y / 100}px`;
+          button.style.setProperty('--size', `${Math.round(bubbleSizes[index] * scale)}px`);
+        });
+        return;
+      }
       const rx = width < 700
-        ? Math.min(width * .38, width / 2 - maxBubble / 2 - 30)
+        ? Math.min(width * .43, width / 2 - maxBubble / 2 - 12)
         : Math.min(width * .42, width / 2 - maxBubble / 2 - 14);
       const ry = height / 2 - maxBubble / 2 - (width < 700 ? 22 : 34);
       const pointAt = ellipseAt(rx, ry);

@@ -4,6 +4,7 @@
  */
 
 import { motion } from "motion/react";
+import { useEffect, useRef, useState } from 'react';
 import { 
   ArrowRight, 
   Check, 
@@ -18,7 +19,9 @@ import {
   BookOpen, 
   ExternalLink,
   Search,
-  Star
+  Star,
+  Menu,
+  X,
 } from "lucide-react";
 
 import { BrowserRouter as Router, Routes, Route, Link, useNavigate } from 'react-router-dom';
@@ -40,23 +43,48 @@ import AdminPurchased from './pages/AdminPurchased';
 import Support from './pages/Support';
 import AdminSupportRequests from './pages/AdminSupportRequests';
 
-export const Navbar = () => (
+export const Navbar = () => {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const closeMobileMenu = () => setMobileMenuOpen(false);
+
+  return (
   <nav className="site-nav absolute top-0 z-50 w-full px-6 pt-6 sm:px-10 lg:px-[4%]">
     <div className="site-nav__inner mx-auto flex max-w-[1760px] items-center justify-between gap-5 px-1 py-2">
-      <a href="https://bimeasy.in" className="flex shrink-0 items-center gap-2.5" aria-label="BIMEasy home">
+      <a href="/" className="flex shrink-0 items-center gap-2.5" aria-label="BIMEasy home">
           <img src={`${import.meta.env.BASE_URL}logo.png`} alt="BIMEasy Logo" className="site-nav__brandmark h-12 w-12 object-contain" />
         <span className="text-[25px] font-bold tracking-tight text-[#1c4268] font-headline">BIMEasy</span>
       </a>
       <div className="hidden flex-1 items-center gap-10 pl-12 md:flex">
-        <a href="https://bimeasy.in/#features" className="site-nav__link">Features</a>
-        <a href="https://bimeasy.in/#tutorial" className="site-nav__link">Tutorial</a>
+        <a href="" className="site-nav__link">Features</a>
+        <a href="" className="site-nav__link">Tutorial</a>
         <Link to="/download" className="site-nav__link">Download</Link>
         <Link to="/pricing" className="site-nav__link">Pricing</Link>
       </div>
       <Link to="/download" className="site-nav__cta">Get Started</Link>
+      <button
+        type="button"
+        className="mobile-nav-toggle"
+        aria-label={mobileMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
+        aria-expanded={mobileMenuOpen}
+        aria-controls="mobile-navigation"
+        onClick={() => setMobileMenuOpen((open) => !open)}
+      >
+        {mobileMenuOpen ? <X size={21} /> : <Menu size={21} />}
+      </button>
+    </div>
+    <button className={`mobile-nav-backdrop${mobileMenuOpen ? ' is-open' : ''}`} type="button" aria-label="Close navigation menu" onClick={closeMobileMenu} />
+    <div id="mobile-navigation" className={`mobile-nav-panel${mobileMenuOpen ? ' is-open' : ''}`} aria-hidden={!mobileMenuOpen}>
+      <div className="mobile-nav-panel__heading"><span>Menu</span><button type="button" aria-label="Close navigation menu" onClick={closeMobileMenu}><X size={21} /></button></div>
+      <a href="#" onClick={closeMobileMenu}>Features</a>
+      <a href="#" onClick={closeMobileMenu}>Tutorial</a>
+      <Link to="/download" onClick={closeMobileMenu}>Download</Link>
+      <Link to="/pricing" onClick={closeMobileMenu}>Pricing</Link>
+      <a href="#company-intro" onClick={closeMobileMenu}>About BIMEasy</a>
+      <Link className="mobile-nav-panel__cta" to="/download" onClick={closeMobileMenu}>Get Started <ArrowRight size={16} /></Link>
     </div>
   </nav>
-);
+  );
+};
 
 const Hero = () => {
   const navigate = useNavigate();
@@ -372,8 +400,45 @@ const SyncHub = () => (
 );
 
 function HomePage() {
+  const [introVisible, setIntroVisible] = useState(true);
+  const [introLeaving, setIntroLeaving] = useState(false);
+  const introMarkRef = useRef<HTMLImageElement>(null);
+
+  useEffect(() => {
+    const frame = requestAnimationFrame(() => {
+      const mark = introMarkRef.current;
+      const destination = document.querySelector<HTMLElement>('.site-nav__brandmark');
+      if (!mark || !destination) {
+        setIntroVisible(false);
+        return;
+      }
+
+      const target = destination.getBoundingClientRect();
+      const deltaX = target.left + target.width / 2 - window.innerWidth / 2;
+      const deltaY = target.top + target.height / 2 - window.innerHeight / 2;
+      const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const duration = reduceMotion ? 0 : 1100;
+      const animation = mark.animate([
+        { transform: 'translate(-50%, -50%) scale(1)' },
+        { transform: `translate(calc(-50% + ${deltaX}px), calc(-50% + ${deltaY}px)) scale(${target.width / 112})` },
+      ], { duration, easing: 'cubic-bezier(.65, 0, .25, 1)', fill: 'forwards' });
+
+      animation.onfinish = () => {
+        setIntroLeaving(true);
+        window.setTimeout(() => setIntroVisible(false), reduceMotion ? 0 : 450);
+      };
+    });
+
+    return () => cancelAnimationFrame(frame);
+  }, []);
+
   return (
-    <div className="home-page intro-complete min-h-screen selection:bg-primary/10 selection:text-primary">
+    <div className={`home-page min-h-screen selection:bg-primary/10 selection:text-primary${introVisible ? ' intro-active' : ''}`}>
+      {introVisible && (
+        <div className={`logo-intro-screen${introLeaving ? ' is-leaving' : ''}`} aria-hidden="true">
+          <img ref={introMarkRef} className="logo-intro-mark" src={`${import.meta.env.BASE_URL}logo.png`} alt="" />
+        </div>
+      )}
       <Navbar />
       <main>
         <Hero />
