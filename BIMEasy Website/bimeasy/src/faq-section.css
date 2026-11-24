@@ -1,0 +1,54 @@
+.faq-section {
+  padding: 76px 28px;
+  color: #344457;
+  background: radial-gradient(ellipse at 58% 45%, rgba(255, 235, 228, .55), transparent 36%), #f7f8fa;
+}
+
+.faq-section__inner {
+  display: grid;
+  grid-template-columns: minmax(330px, .8fr) minmax(0, 1.2fr);
+  align-items: start;
+  gap: 58px;
+  width: 100%;
+  max-width: 1240px;
+  margin: 0 auto;
+}
+
+.faq-section__aside { padding-top: 4px; }
+.faq-section__eyebrow { display: flex; align-items: center; gap: 10px; margin-bottom: 20px; color: #4b6e91; font-size: 15px; font-weight: 600; }
+.faq-section__eyebrow span { width: 10px; height: 10px; border-radius: 50%; background: #78b7e4; box-shadow: 0 0 0 4px rgba(120,183,228,.16); }
+.faq-section__aside h2 { max-width: 430px; margin: 0 0 28px; color: var(--bim-heading); font-size: clamp(32px, 3.2vw, 40px); font-weight: 700; line-height: 1.22; letter-spacing: -.04em; }
+.faq-section__contact { max-width: 450px; padding: 30px 28px; border: 1px solid rgba(255,255,255,.9); border-radius: 20px; background: rgba(255,255,255,.83); box-shadow: 0 14px 36px rgba(48,76,104,.06); }
+.faq-section__logo { display: grid; width: 64px; height: 64px; margin-bottom: 22px; place-items: center; overflow: hidden; border-radius: 50%; background: #e8f3fa; }
+.faq-section__logo img { width: 44px; height: 44px; object-fit: contain; }
+.faq-section__contact h3 { margin: 0 0 10px; color: #284968; font-size: 25px; font-weight: 600; }
+.faq-section__contact p { max-width: 365px; margin: 0 0 22px; color: var(--bim-copy); font-size: 15px; line-height: 1.7; }
+.faq-section__contact-button { display: inline-flex; min-height: 48px; align-items: center; justify-content: center; gap: 10px; width: 100%; padding: 12px 20px; border-radius: 999px; color: #fff; background: #4b6e91; box-shadow: 0 8px 20px rgba(75,110,145,.2); font-size: 14px; font-weight: 600; text-decoration: none; transition: transform .2s, background .2s; }
+.faq-section__contact-button:hover { transform: translateY(-2px); background: #355b7e; }
+
+.faq-section__questions { display: grid; gap: 12px; }
+.faq-section__item { overflow: hidden; border: 1px solid rgba(255,255,255,.92); border-radius: 19px; background: rgba(255,255,255,.82); box-shadow: 0 6px 20px rgba(48,76,104,.035); transition: border-color .2s, background .2s, box-shadow .2s; }
+.faq-section__item.is-open { border-color: rgba(120,183,228,.32); background: rgba(255,255,255,.94); box-shadow: 0 10px 28px rgba(48,76,104,.055); }
+.faq-section__question { display: flex; width: 100%; min-height: 68px; align-items: center; justify-content: space-between; gap: 20px; padding: 17px 22px; border: 0; color: #34495e; background: transparent; text-align: left; font: inherit; font-size: 18px; font-weight: 500; cursor: pointer; }
+.faq-section__toggle { display: grid; flex: 0 0 30px; width: 30px; height: 30px; place-items: center; border-radius: 50%; color: #4b6e91; transition: color .2s, background .2s; }
+.faq-section__item.is-open .faq-section__toggle { color: #fff; background: #78b7e4; }
+.faq-section__answer { display: grid; grid-template-rows: 0fr; transition: grid-template-rows .28s ease; }
+.faq-section__item.is-open .faq-section__answer { grid-template-rows: 1fr; }
+.faq-section__answer-inner { overflow: hidden; }
+.faq-section__answer p { margin: 0; padding: 0 65px 20px 22px; color: var(--bim-copy); font-size: 15px; line-height: 1.75; }
+
+@media (max-width: 850px) {
+  .faq-section__inner { grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr); gap: 30px; }
+  .faq-section__contact { padding: 24px 20px; }
+  .faq-section__aside h2 { font-size: 36px; }
+  .faq-section__question { font-size: 16px; }
+}
+
+@media (max-width: 680px) {
+  .faq-section { padding: 58px 20px; }
+  .faq-section__inner { grid-template-columns: 1fr; gap: 30px; }
+  .faq-section__aside h2 { max-width: 520px; margin-bottom: 22px; font-size: 36px; }
+  .faq-section__contact { max-width: none; }
+  .faq-section__question { min-height: 62px; padding: 15px 17px; font-size: 15px; }
+  .faq-section__answer p { padding: 0 56px 18px 17px; font-size: 13px; }
+}

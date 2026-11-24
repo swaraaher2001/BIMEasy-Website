@@ -1,0 +1,161 @@
+.company-intro {
+  width: 100%;
+  overflow: hidden;
+  padding: 78px 24px;
+  background: #fff;
+}
+
+.company-intro__container {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: center;
+  gap: 64px;
+  width: 100%;
+  max-width: 1260px;
+  margin: 0 auto;
+}
+
+.company-intro__content { padding: 10px 0; }
+
+.company-intro__label {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin-bottom: 14px;
+  color: #4b6e91;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .15em;
+}
+
+.company-intro__label span { width: 25px; height: 2px; background: #78b7e4; }
+
+.company-intro__content h2 {
+  margin: 0 0 18px;
+  color: var(--bim-heading);
+  font-size: clamp(32px, 3.2vw, 40px);
+  font-weight: 700;
+  line-height: 1.16;
+  letter-spacing: -.035em;
+}
+
+.company-intro__description {
+  max-width: 470px;
+  margin: 0 0 18px;
+  color: var(--bim-copy);
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+.company-intro__list { margin: 0 0 27px; padding: 0; list-style: none; }
+.company-intro__list li { display: flex; align-items: flex-start; gap: 10px; margin: 0 0 10px; color: #4b6e91; font-size: 13px; line-height: 1.55; }
+.company-intro__check { display: grid; flex: 0 0 16px; width: 16px; height: 16px; margin-top: 1px; place-items: center; border-radius: 50%; color: #4b6e91; background: #e4f1fa; }
+.company-intro__buttons { display: flex; align-items: center; gap: 16px; }
+.company-intro__button { display: inline-flex; align-items: center; justify-content: center; gap: 9px; padding: 12px 22px; border-radius: 5px; color: #fff; background: #4b6e91; font-size: 12px; font-weight: 700; text-decoration: none; transition: background .2s, transform .2s; }
+.company-intro__button:hover { transform: translateY(-2px); background: #16385b; }
+.company-intro__play { display: grid; width: 42px; height: 42px; place-items: center; border: 1px solid #e4edf4; border-radius: 50%; box-shadow: 0 0 0 5px #f8fbfd; text-decoration: none; }
+.company-intro__play span { display: grid; width: 30px; height: 30px; place-items: center; padding-left: 2px; border-radius: 50%; color: #fff; background: #78b7e4; }
+
+.company-intro__visual { position: relative; width: 100%; height: 390px; }
+.company-intro__image { position: absolute; overflow: hidden; border: 1px solid rgba(75, 110, 145, .08); border-radius: 5px; background: linear-gradient(145deg, #eaf4fb, #f7fbfe); }
+.company-intro__image img { display: block; width: 100%; height: 100%; object-fit: cover; mix-blend-mode: multiply; }
+.company-intro__image--one { z-index: 2; top: 102px; left: 0; width: 58%; height: 140px; }
+.company-intro__image--two { z-index: 1; top: 0; right: 0; width: 65%; height: 210px; }
+.company-intro__image--three { z-index: 1; right: 0; bottom: 14px; width: 49%; height: 140px; }
+.company-intro__project-card, .company-intro__award-card { position: absolute; z-index: 5; display: flex; flex-direction: column; align-items: center; justify-content: center; border: 1px solid #eef4f8; border-radius: 6px; background: #fff; box-shadow: 0 8px 25px rgba(54, 93, 128, .1); text-align: center; }
+.company-intro__project-card { top: 0; left: 8%; width: 145px; height: 75px; }
+.company-intro__project-card strong { color: #16385b; font-size: 20px; }
+.company-intro__project-card span { margin-top: 3px; color: #718a9f; font-size: 10px; }
+.company-intro__award-card { bottom: 0; left: 29%; width: 150px; height: 138px; }
+.company-intro__stars { margin-bottom: 9px; padding: 4px 7px; border-radius: 4px; color: #4b6e91; background: #eaf4fb; font-size: 9px; font-weight: 700; letter-spacing: .08em; }
+.company-intro__award-card strong { margin-bottom: 4px; color: #4b6e91; font-size: 23px; }
+.company-intro__award-card span { color: #4b6e91; font-size: 12px; font-weight: 600; line-height: 1.4; }
+
+@media (max-width: 991px) {
+  .company-intro__container { gap: 38px; }
+  .company-intro__visual { height: 345px; }
+  .company-intro__image--two { height: 180px; }
+  .company-intro__image--one { top: 86px; height: 118px; }
+  .company-intro__image--three { height: 122px; }
+}
+
+@media (max-width: 767px) {
+  .company-intro { padding: 58px 20px; }
+  .company-intro__container { grid-template-columns: 1fr; gap: 42px; }
+  .company-intro__content h2 { font-size: 30px; }
+  .company-intro__description { max-width: 100%; }
+  .company-intro__visual { max-width: 520px; height: 340px; margin: 0 auto; }
+}
+
+@media (max-width: 480px) {
+  .company-intro { padding: 44px 18px; }
+  .company-intro__content h2 { font-size: 27px; }
+  .company-intro__visual { height: 290px; }
+  .company-intro__image--one { top: 75px; height: 100px; }
+  .company-intro__image--two { height: 150px; }
+  .company-intro__image--three { bottom: 10px; height: 105px; }
+  .company-intro__project-card { width: 115px; height: 62px; }
+  .company-intro__award-card { left: 25%; width: 126px; height: 118px; }
+}
+
+/* Dark introduction section */
+.company-intro { background: radial-gradient(ellipse at 85% 50%, #244c6e 0%, transparent 38%), linear-gradient(120deg, #102940 0%, #16385b 58%, #1a4265 100%); }
+.company-intro__label { color: #a9d4f1; }
+.company-intro__label span { background: #78b7e4; }
+.company-intro__content h2 { color: var(--bim-heading-inverse); }
+.company-intro__description { color: var(--bim-copy-inverse); }
+.company-intro__list li { color: #d5e2ec; }
+.company-intro__check { color: #16385b; background: #b9d9ef; }
+.company-intro__button { color: #16385b; background: #a9d4f1; }
+.company-intro__button:hover { color: #102940; background: #d3e7f5; }
+.company-intro__play { border-color: rgba(211, 231, 245, .26); box-shadow: 0 0 0 5px rgba(255,255,255,.035); }
+.company-intro__play span { color: #16385b; background: #a9d4f1; }
+.company-intro__image { border-color: rgba(214, 235, 248, .2); background: linear-gradient(145deg, #dcecf7, #f6fbff); box-shadow: 0 12px 30px rgba(5, 20, 34, .18); }
+.company-intro__image img { mix-blend-mode: normal; filter: saturate(.9); }
+.company-intro__project-card, .company-intro__award-card { border-color: rgba(226, 240, 248, .24); background: rgba(247, 251, 254, .96); box-shadow: 0 10px 32px rgba(5, 20, 34, .3); }
+.company-intro__project-card strong { color: #16385b; }
+.company-intro__project-card span, .company-intro__award-card span { color: #4b6e91; }
+.company-intro__stars { color: #4b6e91; background: #e4f1fa; }
+.company-intro__award-card strong { color: #4b6e91; }
+
+.company-intro { position: relative; isolation: isolate; }
+.company-intro::before, .company-intro::after { position: absolute; z-index: 0; content: ""; pointer-events: none; }
+.company-intro::before {
+  inset: -45%;
+  opacity: .2;
+  background-image:
+    url('/company-bim-lines.svg'),
+    repeating-linear-gradient(90deg, transparent 0 57px, rgba(169, 212, 241, .48) 58px, transparent 59px 116px),
+    repeating-linear-gradient(0deg, transparent 0 57px, rgba(169, 212, 241, .38) 58px, transparent 59px 116px),
+    linear-gradient(135deg, transparent 49.8%, rgba(169, 212, 241, .34) 50%, transparent 50.2%);
+  background-size: 900px 600px, 116px 116px, 116px 116px, 232px 232px;
+  background-position: 62% center, 0 0, 0 0, 0 0;
+  background-repeat: no-repeat, repeat, repeat, repeat;
+  mask-image: linear-gradient(115deg, transparent 8%, #000 38%, #000 72%, transparent 96%);
+  animation: company-intro-pattern-drift 32s ease-in-out infinite alternate;
+}
+.company-intro::after {
+  top: -220px;
+  left: 24%;
+  width: 520px;
+  height: 520px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(120, 183, 228, .18), rgba(120, 183, 228, .04) 48%, transparent 72%);
+  filter: blur(18px);
+  animation: company-intro-glow-float 15s ease-in-out infinite alternate;
+}
+.company-intro__container { position: relative; z-index: 1; }
+
+@keyframes company-intro-pattern-drift {
+  from { opacity: .12; transform: translate3d(-18px, 0, 0) rotate(-1deg); }
+  to { opacity: .24; transform: translate3d(20px, 12px, 0) rotate(1deg); }
+}
+
+@keyframes company-intro-glow-float {
+  from { transform: translate3d(-8%, 0, 0) scale(.92); }
+  to { transform: translate3d(30%, 24%, 0) scale(1.12); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .company-intro::before, .company-intro::after { animation: none; }
+}

@@ -1,0 +1,64 @@
+.tutorial-showcase {
+  position: relative;
+  overflow: hidden;
+  padding: 96px 24px;
+  color: #f4f8fb;
+  background:
+    radial-gradient(ellipse at 78% 48%, rgba(41, 91, 132, .24), transparent 36%),
+    linear-gradient(120deg, #06152a 0%, #0b2037 58%, #102943 100%);
+}
+
+.tutorial-showcase__inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1.08fr) minmax(0, .92fr);
+  align-items: center;
+  gap: 52px;
+  width: 100%;
+  max-width: 1260px;
+  margin: 0 auto;
+}
+
+.tutorial-showcase__content { position: relative; z-index: 1; }
+.tutorial-showcase__eyebrow { display: flex; align-items: center; gap: 10px; margin-bottom: 15px; color: #78b7e4; font-size: 11px; font-weight: 700; letter-spacing: .14em; }
+.tutorial-showcase__eyebrow span { width: 28px; height: 1px; background: #78b7e4; }
+.tutorial-showcase__content h2 { max-width: 600px; margin: 0 0 30px; color: var(--bim-heading-inverse); font-size: clamp(32px, 3.2vw, 40px); font-weight: 700; line-height: 1.22; letter-spacing: -.035em; }
+.tutorial-showcase__intro { margin: -16px 0 25px; color: var(--bim-copy-inverse); font-size: 15px; line-height: 1.7; }
+.tutorial-showcase__lessons { display: grid; gap: 8px; }
+.tutorial-showcase__lesson { display: flex; align-items: center; justify-content: space-between; gap: 16px; width: 100%; min-height: 98px; padding: 18px 20px; border: 1px solid rgba(167, 195, 219, .12); border-radius: 14px; color: #f5f8fb; background: rgba(255,255,255,.035); text-align: left; cursor: pointer; transition: background .25s, border-color .25s, transform .25s; }
+.tutorial-showcase__lesson:hover { transform: translateX(3px); border-color: rgba(120,183,228,.4); }
+.tutorial-showcase__lesson.is-active { border-color: rgba(120,183,228,.56); border-left: 3px solid #78b7e4; background: rgba(120,183,228,.12); }
+.tutorial-showcase__lesson-copy { display: grid; gap: 8px; }
+.tutorial-showcase__lesson-copy strong { color: #f6f9fc; font-size: 16px; font-weight: 700; }
+.tutorial-showcase__lesson-copy small { max-width: 460px; color: #9dafc1; font-size: 12px; line-height: 1.55; }
+.tutorial-showcase__lesson-arrow { display: grid; flex: 0 0 40px; width: 40px; height: 40px; place-items: center; border-radius: 50%; color: #d5e9f7; background: rgba(120,183,228,.14); transition: color .2s, background .2s; }
+.tutorial-showcase__lesson.is-active .tutorial-showcase__lesson-arrow { color: #16385b; background: #78b7e4; }
+
+.tutorial-showcase__visual { position: relative; min-height: 470px; background: linear-gradient(145deg, #e4f2fb, #9cc9e8 65%, #78b7e4); clip-path: polygon(17% 0, 100% 0, 100% 100%, 0 100%, 0 18%); }
+.tutorial-showcase__visual::before { position: absolute; z-index: 1; inset: 0; content: ""; background: linear-gradient(180deg, rgba(9,29,49,.04), rgba(9,29,49,.23)); pointer-events: none; }
+.tutorial-showcase__visual > img { display: block; width: 100%; height: 470px; object-fit: cover; object-position: center bottom; mix-blend-mode: multiply; }
+.tutorial-showcase__info-card { position: absolute; z-index: 2; right: auto; bottom: 28px; left: 26px; display: flex; width: min(285px, calc(100% - 52px)); min-height: 190px; flex-direction: column; align-items: flex-start; padding: 20px; border: 1px solid rgba(255,255,255,.8); border-radius: 14px; color: #183a5c; background: rgba(255,255,255,.96); box-shadow: 0 16px 40px rgba(6,21,42,.22); }
+.tutorial-showcase__book-icon { display: grid; width: 35px; height: 35px; margin-bottom: 12px; place-items: center; border-radius: 9px; color: #4b6e91; background: #e7f2fa; }
+.tutorial-showcase__info-card small { margin-bottom: 5px; color: #718a9f; font-size: 10px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
+.tutorial-showcase__info-card strong { color: #16385b; font-size: 15px; }
+.tutorial-showcase__info-card p { margin: 7px 0 12px; color: #657b90; font-size: 11px; line-height: 1.5; }
+.tutorial-showcase__info-card a { display: inline-flex; align-items: center; gap: 7px; margin-top: auto; color: #355f82; font-size: 11px; font-weight: 700; text-decoration: none; }
+.tutorial-showcase__info-card a:hover { color: #16385b; }
+
+@media (max-width: 850px) {
+  .tutorial-showcase__inner { grid-template-columns: 1fr; gap: 38px; }
+  .tutorial-showcase__visual { width: min(100%, 620px); min-height: 430px; margin: 0 auto; }
+  .tutorial-showcase__visual > img { height: 430px; }
+}
+
+@media (max-width: 520px) {
+  .tutorial-showcase { padding: 68px 20px; }
+  .tutorial-showcase__content h2 { margin-bottom: 24px; font-size: 34px; }
+  .tutorial-showcase__intro { margin-top: -10px; font-size: 14px; }
+  .tutorial-showcase__lesson { min-height: 90px; padding: 15px; }
+  .tutorial-showcase__lesson-copy strong { font-size: 14px; }
+  .tutorial-showcase__lesson-copy small { font-size: 11px; }
+  .tutorial-showcase__lesson-arrow { flex-basis: 34px; width: 34px; height: 34px; }
+  .tutorial-showcase__visual { min-height: 350px; }
+  .tutorial-showcase__visual > img { height: 350px; }
+  .tutorial-showcase__info-card { bottom: 16px; left: 16px; width: min(265px, calc(100% - 32px)); min-height: 175px; padding: 16px; }
+}

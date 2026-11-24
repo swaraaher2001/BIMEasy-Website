@@ -1,0 +1,56 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap');
+
+@theme {
+  --font-headline: "Manrope", sans-serif;
+  --font-body: "Inter", sans-serif;
+
+  --color-primary: #00478d;
+  --color-on-primary: #ffffff;
+  --color-primary-container: #005eb8;
+  --color-on-primary-container: #c8daff;
+  
+  --color-secondary: #49607c;
+  --color-on-secondary: #ffffff;
+  --color-secondary-container: #c7dfff;
+  --color-on-secondary-container: #4b637e;
+
+  --color-tertiary: #00523d;
+  --color-on-tertiary: #ffffff;
+  --color-tertiary-container: #006d51;
+  --color-on-tertiary-container: #00f7bc;
+  --color-tertiary-fixed: #36ffc4;
+
+  --color-surface: #f6fafe;
+  --color-on-surface: #171c1f;
+  --color-on-surface-variant: #424752;
+  
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-low: #f0f4f8;
+  --color-surface-container: #eaeef2;
+  --color-surface-container-high: #e4e9ed;
+  --color-surface-container-highest: #dfe3e7;
+
+  --color-outline: #727783;
+  --color-outline-variant: #c2c6d4;
+  
+  --color-inverse-surface: #2c3134;
+  --color-inverse-on-surface: #edf1f5;
+}
+
+@layer utilities {
+  .blueprint-bg {
+    background-image: 
+        linear-gradient(rgba(0, 71, 141, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 71, 141, 0.05) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+}
+
+body {
+  @apply font-body bg-surface text-on-surface;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  @apply font-headline;
+}

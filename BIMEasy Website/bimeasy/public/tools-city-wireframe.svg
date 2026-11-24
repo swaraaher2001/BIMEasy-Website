@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 720" fill="none">
+  <g stroke="#78B7E4" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Street vanishing point and perspective ground -->
+    <path d="M600 300 40 710M600 300 1160 710M600 300 310 710M600 300 890 710M600 300v410M0 580h1200M0 635h1200M0 680h1200" stroke-opacity=".56"/>
+    <path d="M600 300 0 500M600 300 1200 500M600 300 0 430M600 300 1200 430" stroke-opacity=".3"/>
+    <!-- Left side city facade -->
+    <path d="M35 105 265 45v355L35 475V105ZM265 45l120 65v330l-120-40V45ZM35 105l120 65 230-60M35 178l350-58M35 250l350-43M35 322l350-28M35 395l350-13M35 475l350-4"/>
+    <path d="M75 94v360m45-372v360m45-347v360m45-372v360m45-377v360m45-335v350m45-312v320m45-288v295" stroke-opacity=".62"/>
+    <path d="M35 142 265 88l120 62M35 214 265 164l120 39M35 286l230-45 120 19M35 358l230-39 120 3M35 430l230-32 120-25" stroke-opacity=".62"/>
+    <!-- Right side city facade -->
+    <path d="M1165 90 920 35v370l245 70V90ZM920 35l-130 72v336l130-38V35ZM1165 90l-245 65-130-48M1165 165 920 220l-130-45M1165 240l-245 45-130-42M1165 315l-245 35-130-40M1165 390l-245 20-130-38M1165 475l-245-5-130-27"/>
+    <path d="M1120 80v380m-48-391v378m-48-389v376m-48-397v385m-45-382v355m-45-333v311m-45-286v262m-45-236v212" stroke-opacity=".62"/>
+    <path d="M1165 128 920 82l-130 66M1165 202 920 157l-130 65M1165 277l-245-40-130 63M1165 352l-245-28-130 61M1165 427l-245-10-130 58" stroke-opacity=".62"/>
+    <!-- Perspective curb and street lane markings -->
+    <path d="m410 720 190-420 190 420M530 720l70-420 70 420M0 540l600-240 600 240" stroke-opacity=".44"/>
+  </g>
+</svg>
